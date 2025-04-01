@@ -35,3 +35,9 @@ RUN chmod +x *.sh
 EXPOSE 2181 9092
 
 CMD ["./run.sh"]  
+
+RUN mkdir -p /opt/kafka/logs && \
+    touch /opt/kafka/logs/server.log /opt/kafka/logs/zookeeper.log && \
+    chmod -R a+rw /opt/kafka/logs
+
+VOLUME /opt/kafka/logs
